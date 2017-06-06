@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String urld = "http://www.hackstories.com";
+        String urld = "http://www.google.com";
 
 
         webv = (WebView) findViewById(R.id.webv);
@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 url = et.getText().toString();
                 if(!url.startsWith("http://"))
                     url = "http://"+url;
+                else if(!url.startsWith("http://www."))
+                    url = "http://www.google.com/"+url;
                 webv.loadUrl(url);
 
                 //hide the keybaoard
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(webv.canGoBack())
-                    webv.canGoBack();
+                    webv.goBack();
             }
         });
 
